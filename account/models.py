@@ -1,5 +1,6 @@
 from django.db import models
 from . import constants
+from geopy.geocoders import Nominatim
 
 class Shipment(models.Model):
     sender_name = models.CharField(max_length=150)
@@ -43,5 +44,48 @@ class LiveUpdate(models.Model):
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
 
+    def save(self, *args, **kwargs):
+        country_title = self.country.title().strip()
+
+        if not self.latitude or not self.longitude:
+            try:
+                # Try to fetch cached coordinates first
+                cached_location = CountryLocation.objects.get(country_name=country_title)
+                self.latitude = cached_location.latitude
+                self.longitude = cached_location.longitude
+            except CountryLocation.DoesNotExist:
+                # If not cached, geocode via Nominatim
+                geolocator = Nominatim(user_agent="shipment_tracker_app")
+                location = geolocator.geocode(country_title)
+                if location:
+                    self.latitude = location.latitude
+                    self.longitude = location.longitude
+
+                    # Save to cache for future
+                    CountryLocation.objects.create(
+                        country_name=country_title,
+                        latitude=location.latitude,
+                        longitude=location.longitude,
+                    )
+                else:
+                    # Optional: handle geocoding failure gracefully
+                    # e.g. log warning or raise exception or assign default lat/lng
+                    pass
+
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.status
+
+
+class CountryLocation(models.Model):
+    country_name = models.CharField(max_length=100, unique=True)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
+    def save(self, *args, **kwargs):
+        self.country_name = self.country_name.title()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.country_name

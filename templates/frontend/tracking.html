@@ -9,6 +9,11 @@
     .title-heading h1{
         font-size: 20px;
     }
+    #shipment-map {
+        height: 400px;  /* or whatever height you want */
+        width: 100%;
+        margin-top: 20px;
+    }
 </style>
 
 <!-- Start #page-title-->
@@ -52,9 +57,16 @@
 {% if shipments %}
 <div class="container py-5">
     <div class="row justify-content-center align-items-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
-                {% include './include/tracking_alert.html' %}
+                <div class="row">
+                    <div class="col-md-6">
+                        {% include './include/tracking_alert.html' %}
+                    </div>
+                    <div class="col-md-6">
+                        <div id="shipment-map"></div>
+                    </div>
+                </div>
                 <hr>
                 {% for shipment in shipments %}
                 <div class="card-body">
@@ -115,6 +127,9 @@
                 </div>
                 {% endfor %}
             </div>
+        </div>
+        <div class="col-md-6">
+
         </div>
     </div>
 
@@ -352,4 +367,70 @@ Cases & Clients #1 Section end
 ============================
 -->
 {% endif %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ live_updates_json|default:"[]"|json_script:"live_updates" }}
+<script>
+    const updates = JSON.parse(document.getElementById('live_updates').textContent);
+
+    const map = L.map('shipment-map').setView([0, 0], 2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const latlngs = [];
+
+    updates.forEach((update, index) => {
+        const latlng = [update.latitude, update.longitude];
+        latlngs.push(latlng);
+
+        let markerOptions = {};
+        let popupContent = `<b>${update.status}</b><br>${update.remark || ''}<br>${new Date(update.created_on).toLocaleDateString()}`;
+
+        if (index === 0) {
+            // Start marker (green)
+            markerOptions = {
+            color: 'green',
+            radius: 10,
+            fillOpacity: 0.8
+            };
+            popupContent = `<b>Origin:</b> ${popupContent}`;
+        } else if (index === updates.length - 1) {
+            // End marker (red)
+            markerOptions = {
+            color: 'red',
+            radius: 10,
+            fillOpacity: 0.8
+            };
+            popupContent = `<b>Latest Update:</b> ${popupContent}`;
+        }
+
+        // Create marker — circleMarker for start/end, regular marker for others
+        let marker;
+        if (index === 0 || index === updates.length - 1) {
+            marker = L.circleMarker(latlng, markerOptions).addTo(map);
+        } else {
+            marker = L.marker(latlng).addTo(map);
+        }
+
+        // Bind popup
+        marker.bindPopup(popupContent);
+
+        // Bind tooltip with country name — shows on hover
+        marker.bindTooltip(update.country, {
+            permanent: false,    // tooltip shows only on hover
+            direction: 'top',
+            offset: [0, -10],    // lift tooltip slightly above marker
+        });
+    });
+
+    // Draw polyline for route
+    const polyline = L.polyline(latlngs, {color: 'blue'}).addTo(map);
+
+    // Zoom map to fit all points with padding
+    const bounds = L.latLngBounds(latlngs);
+    map.fitBounds(bounds, {padding: [50, 50]});
+</script>
+
 {% endblock %}

@@ -22,23 +22,41 @@ def service(request):
 
 def tracking(request):
     if request.method == 'POST':
-
         tracking_code = request.POST.get('tracking_code')
         shipments = Shipment.objects.filter(tracking_number=tracking_code)
 
         if shipments.exists():
-
             shipment_single = shipments.first()
-            live_update = LiveUpdate.objects.filter(shipment=shipment_single)
-            live_update_count = live_update.count()
-            latest_update = live_update.last()
+            live_update_qs = LiveUpdate.objects.filter(shipment=shipment_single).order_by('created_on')
 
-            return render(request, 'frontend/tracking.html', {'shipments':shipments, 'shipment_single':shipment_single,
-            'update_count':live_update_count, 'latest_update':latest_update,
-            'live_update':live_update}) 
+            # Serialize live updates to a list of dicts for the map
+            live_updates = []
+            for update in live_update_qs:
+                if update.latitude and update.longitude:
+                    live_updates.append({
+                        'latitude': update.latitude,
+                        'longitude': update.longitude,
+                        'status': update.status,
+                        'remark': update.remark,
+                        'created_on': update.created_on.isoformat(),
+                        'country': update.country,
+                    })
+
+            live_update_count = live_update_qs.count()
+            latest_update = live_update_qs.last()
+
+            return render(request, 'frontend/tracking.html', {
+                'shipments': shipments,
+                'shipment_single': shipment_single,
+                'update_count': live_update_count,
+                'latest_update': latest_update,
+                'live_update': live_update_qs,
+                'live_updates_json': live_updates,  # Pass serialized updates for JS
+            })
         else:
-            messages.error(request, "Invalid tracking code.  Please check the code and try again.")
+            messages.error(request, "Invalid tracking code. Please check the code and try again.")
             return redirect('frontend:tracking')
+
     return render(request, 'frontend/tracking.html')
 
 
