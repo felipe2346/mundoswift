@@ -132,4 +132,4 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = 'Revella World Express <contact@revellaworldexpress.com>'
+DEFAULT_FROM_EMAIL = 'MundoSwift <delivery@mundoswift.com>'
