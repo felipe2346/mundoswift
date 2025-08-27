@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="tdkingzz" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="description" content="Reveller World FX" />
+    <title>Home - Reveller World FX</title>
+    <link href="{% static 'frontend/images/favicon.png' %}" rel="icon" />
+    <!--  Fonts ==
+    -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&amp;family=Rubik:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!--  Stylesheets==
+    -->
+    <link href="{% static 'frontend/css/vendor.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'frontend/css/style.css' %}" rel="stylesheet" />
+
+    <style>
+      #google_translate_element {
+        color: transparent;
+      }
+      #google_translate_element a {
+        display: none;
+      }
+      select.google_translate_element {
+        color: black;
+      }
+      div.goog-te-gadget {
+        color: transparent !important;
+      }
+  </style>
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="loader-spinner">
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Document Wrapper-->
+    <div class="wrapper clearfix" id="wrapperParallax">
+      {% include './include/navbar.html' %}
+      {% block content %} {% endblock %}
+      {% include './include/footer.html' %}
+      <div class="backtop" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+      </div>
+    </div>
+    <!--  Footer Scripts==
+    -->
+
+    <!-- google transalte  -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+
+
+    <script src="{% static 'frontend/js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'frontend/js/vendor.min.js' %}"></script>
+    <script src="{% static 'frontend/js/functions.js' %}"></script>
+  </body>
+</html>

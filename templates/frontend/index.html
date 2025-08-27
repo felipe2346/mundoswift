@@ -1,0 +1,879 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!--
+============================
+Slider #1 Section
+============================
+-->
+<section class="slider slider-1" id="slider-1">
+    <div class="container-fluid pr-0 pl-0">
+        <div class="carousel owl-carousel custom-carousel carousel-navs carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="false" data-nav="true" data-dots="true" data-space="0" data-loop="true" data-speed="800" data-slider-id="#custom-carousel">
+        <!--  Start .slide-->
+        <div class="slide d-flex align-items-center bg-overlay bg-overlay-dark">
+            <div class="bg-section"><img src="{% static 'frontend/images/1.jpg' %}" alt="Background"></div>
+            <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-7">
+                <div class="slide-content">
+                    <p class="slide-subheadline">Flexibile, Improved And accelerated Solutions</p>
+                    <h1 class="slide-headline">full sustainable<br>cargo solutions!</h1>
+                    <p class="slide-desc">Representative logistics operator providing full range of service in the sphere of customs clearance and transportation worldwide.</p>
+                    <div class="slide-buttons"><a class="btn btn--primary" href="{% url 'frontend:tracking' %}">track shipment</a><a class="btn btn--white" href="{% url 'frontend:service' %}">our services</a></div>
+                </div>
+                <!-- End .slide-content -->
+                </div>
+            </div>
+            <!--  End .row-->
+            </div>
+        </div>
+        <!-- End .slide-->
+        <!--  Start .slide-->
+        <div class="slide d-flex align-items-center bg-overlay bg-overlay-dark">
+            <div class="bg-section"><img src="{% static 'frontend/images/2.jpg' %}" alt="Background"></div>
+            <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-7">
+                <div class="slide-content">
+                    <p class="slide-subheadline">Flexibile, Improved And accelerated Solutions</p>
+                    <h2 class="slide-headline">Air Freight That<br>Saves Your Time!</h2>
+                    <p class="slide-desc">Representative logistics operator providing full range of service in the sphere of customs clearance and transportation worldwide.</p>
+                    <div class="slide-buttons"><a class="btn btn--primary" href="{% url 'frontend:tracking' %}">track shipment</a><a class="btn btn--white" href="{% url 'frontend:service' %}">our services</a></div>
+                </div>
+                <!-- End .slide-content -->
+                </div>
+            </div>
+            <!--  End .row-->
+            </div>
+        </div>
+        <!-- End .slide-->
+        <!--  Start .slide-->
+        <div class="slide d-flex align-items-center bg-overlay bg-overlay-dark">
+            <div class="bg-section"><img src="{% static 'frontend/images/3.jpg' %}" alt="Background"></div>
+            <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-7">
+                <div class="slide-content">
+                    <p class="slide-subheadline">Flexibile, Improved And accelerated Solutions</p>
+                    <h2 class="slide-headline">innovation sea<br>transportation!</h2>
+                    <p class="slide-desc">Representative logistics operator providing full range of service in the sphere of customs clearance and transportation worldwide.</p>
+                    <div class="slide-buttons"><a class="btn btn--primary" href="{% url 'frontend:tracking' %}">track shipment</a><a class="btn btn--white" href="{% url 'frontend:service' %}">our services</a></div>
+                </div>
+                <!-- End .slide-content -->
+                </div>
+            </div>
+            <!--  End .row-->
+            </div>
+        </div>
+        <!-- End .slide-->
+        <!--  Start .slide-->
+        <div class="slide d-flex align-items-center bg-overlay bg-overlay-dark">
+            <div class="bg-section"><img src="{% static 'frontend/images/4.jpg' %}" alt="Background"></div>
+            <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-7">
+                <div class="slide-content">
+                    <p class="slide-subheadline">Flexibile, Improved And accelerated Solutions</p>
+                    <h2 class="slide-headline">your flexible<br>road directions!</h2>
+                    <p class="slide-desc">Representative logistics operator providing full range of service in the sphere of customs clearance and transportation worldwide.</p>
+                    <div class="slide-buttons"><a class="btn btn--primary" href="{% url 'frontend:tracking' %}">track shipment</a><a class="btn btn--white" href="{% url 'frontend:service' %}">our services</a></div>
+                </div>
+                <!-- End .slide-content -->
+                </div>
+            </div>
+            <!--  End .row-->
+            </div>
+        </div>
+        <!-- End .slide-->
+        </div>
+    </div>
+<!--  End .container-fluid-->
+</section>
+
+<!--
+============================
+Slider #1 Section end
+============================
+-->
+
+
+<!--
+============================
+Services Bar Section
+============================
+-->
+<section class="services-bar" id="servicesBar">
+    <div class="container">
+        <div class="row no-gutters">
+        <div class="col-12 col-md-6 col-lg-3 services-bar-card active"><i class="thumb-icon flaticon-002-warehouse"></i>
+            <div class="thumb-body"> 
+            <p>sustainable </p>
+            <h3> <a href="#">warehousing services</a></h3>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 services-bar-card"><i class="thumb-icon flaticon-035-plane"></i>
+            <div class="thumb-body"> 
+            <p>reliable</p>
+            <h3> <a href="#">air freight services</a></h3>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 services-bar-card"><i class="thumb-icon flaticon-010-cargo"> </i>
+            <div class="thumb-body"> 
+            <p>innovative</p>
+            <h3> <a href="#">ocean freight services</a></h3>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 services-bar-card"><i class="thumb-icon flaticon-004-trailer-1"></i>
+            <div class="thumb-body"> 
+            <p>flexible</p>
+            <h3> <a href="#"> road freight services</a></h3>
+            </div>
+        </div>
+        </div>
+        <!-- End .row-->
+    </div>
+<!-- End .container-->
+</section>
+
+<!--
+============================
+Services Bar Section end
+============================
+-->
+
+
+<!--
+============================
+About #1 Section
+============================
+-->
+<section class="about pt-70" id="about-1">
+    <div class="container">
+        <div class="row">
+        <div class="col-12 col-lg-5">
+            <div class="about-img about-img-left">
+            <div class="about-img-warp bg-overlay">
+                <div class="bg-section"><img src="{% static 'frontend/images/1_2.jpg' %}" alt="about Image"></div>
+            </div>
+            <div class="counter">
+                <div class="counter-icon"> <i class="flaticon-018-packaging"></i></div>
+                <div class="counter-num"> <span class="counting">9,612</span>
+                <p>m</p>
+                </div>
+                <div class="counter-name">
+                <h6>delivered goods</h6>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-7">
+            <div class="heading heading-3">
+            <p class="heading-subtitle">Providing Full Range Of Transportation Worldwide.</p>
+            <h2 class="heading-title">Reliable Logistic &amp; Transport Solutions Saves Your Time!</h2>
+            </div>
+            <div class="about-block"> 
+            <div class="row">
+                <div class="col-12 col-lg-7">
+                <div class="block-left"> 
+                    <p>Mundoswift is a leading logistics operator, offering a comprehensive range of services in customs clearance and global transportation for all types of cargo.</p>
+                    <p>We take pride in delivering top tier transport and shipping solutions worldwide. Backed by a team of experienced professionals and the latest in communication and tracking technology, we provide seamless, integrated supply chain services tailored to your needs.</p>
+                </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                <div class="block-right">
+                    <div class="detail"> 
+                    <h6>quality </h6>
+                    <p>Following the quality of our service thus having gained trust of our many clients.</p>
+                    </div>
+                    <div class="detail"> 
+                    <h6>rellability</h6>
+                    <p>We provide with cargo safety throughout all the stages of our delivery process..</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="signature-block">
+            <div class="signature-body"> 
+                <h6>john peter</h6>
+                <p>founder</p>
+            </div><img src="{% static 'frontend/images/1.png' %}" alt="signature">
+            </div>
+        </div>
+        <!-- End .col-lg-6-->
+        </div>
+        <!-- End .row-->
+    </div>
+<!-- End .container-->
+</section>
+
+<!--
+============================
+About #1 Section end
+============================
+-->
+
+
+<!--
+============================
+CTA #1 Section
+============================
+-->
+<section class="cta bg-overlay bg-overlay-dark2" id="cta-1">
+    <div class="bg-section"><img src="{% static 'frontend/images/1_3.jpg' %}" alt="background"></div>
+    <div class="container">
+        <div class="row">
+        <div class="col-12 col-lg-6">
+            <div class="heading heading-2 heading-light">
+            <p class="heading-subtitle">Dedicated Customer Teams &amp; An Agile Services</p>
+            <h2 class="heading-title">Global Logistics Partner To World's Famous Brands For Over 25 Years!</h2>
+            </div>
+        </div>
+        <!--End .col-lg-6-->
+        <div class="col-12 col-lg-6">
+            <div class="icon-set">
+            <div class="icon-panel"> <i class="icon flaticon-016-payment-terminal"></i><span>transparent pricing</span></div>
+            <div class="icon-panel"> <i class="icon flaticon-014-box-3"></i><span>fast, effecient delivery</span></div>
+            <div class="icon-panel"> <i class="icon flaticon-001-scale-1"></i><span>warehouse storage</span></div>
+            </div>
+        </div>
+        <!--End .col-lg-6-->
+        <div class="col-12"> 
+            <div class="contact-panel">
+            <div class="contact-types"> <a class="button quote-btn" href="javascript:void(0)" data-form="quoteFormActive"> <i class="flaticon-020-order"> </i><span>request a quote</span></a><a class="button track-btn active" href="javascript:void(0)" data-form="trackFormActive"> <i class="flaticon-009-shipping-1"> </i><span>track &amp; trace</span></a></div>
+            <div class="contact-card">
+                <div class="contact-body trackFormActive">
+                <div class="row">
+                    <div class="col-12 col-lg-8"> 
+                    <form class="contactForm quote-form mb-0" method="post" action="">
+                        <h5 class="card-heading">personal data</h5>
+                        <div class="row">
+                        <div class="col-12 col-md-12 col-lg-4">
+                            <input class="form-control" type="text" name="contact-name" placeholder="Name" required="">
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <input class="form-control" type="text" name="contact-email" placeholder="Email" required="">
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <input class="form-control" type="text" name="contact-phone" placeholder="Phone" required="">
+                        </div>
+                        </div>
+                        <h5 class="card-heading">shipment data</h5>
+                        <div class="row">
+                        <div class="col-12 col-lg-4">
+                            <div class="select-container">
+                            <select class="form-control">
+                                <option value="default">freight type</option>
+                                <option value="AL">Air</option>
+                                <option value="AK">Water</option>
+                                <option value="AK">Land</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <input class="form-control" type="text" name="contact-city" placeholder="city of departure" required="">
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <input class="form-control" type="text" name="contact-destination" placeholder="delivery city" required="">
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="select-container">
+                            <select class="form-control">
+                                <option value="default">incoterms</option>
+                                <option value="AL">incoterms 1</option>
+                                <option value="AK">incoterms 2</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <input class="form-control" type="text" name="contact-weight" placeholder="weight" required="">
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <input class="form-control" type="text" name="contact-height" placeholder="height" required="">
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <input class="form-control" type="text" name="contact-width" placeholder="width" required="">
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <input class="form-control" type="text" name="contact-length" placeholder="length" required="">
+                        </div>
+                        <div class="col-12"> 
+                            <div class="custom-radio-group">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" type="radio" id="customRadioInline1" name="customRadioInline1">
+                                <label for="customRadioInline1">fragile</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" type="radio" id="customRadioInline2" name="customRadioInline1">
+                                <label for="customRadioInline2">express delivery</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" type="radio" id="customRadioInline3" name="customRadioInline1">
+                                <label for="customRadioInline3">insurance</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" type="radio" id="customRadioInline4" name="customRadioInline1">
+                                <label for="customRadioInline4">packaging</label>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <input class="btn btn--secondary btn--block" type="submit" value="Request A Quote">
+                        </div>
+                        <div class="col-12">
+                            <div class="contact-result"></div>
+                        </div>
+                        </div>
+                    </form>
+                    <form class="contactForm track-form mb-0" method="post" action="">
+                        <h5 class="card-heading">personal data</h5>
+                        <div class="row">
+                        <div class="col-12"> 
+                            <div class="select-container">
+                            <select class="form-control">
+                                <option value="default">shipment type</option>
+                                <option value="AL">Regular</option>
+                                <option value="AK">Diplomatic</option>
+                            </select>
+                            </div>
+                        </div>
+                        </div>
+                        <h5 class="card-heading">tracking number</h5>
+                        <div class="row">
+                        <div class="col-12"> 
+                            <textarea class="form-control" name="contact-tracking-number" cols="30" rows="2" placeholder="You can enter up to a maximum of 10 airway bill numbers for tracking." required=""></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="custom-radio-group">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" type="radio" id="customRadioInline5" name="customRadioInline2">
+                                <label for="customRadioInline5">fragile</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" type="radio" id="customRadioInline6" name="customRadioInline2">
+                                <label for="customRadioInline6">express delivery</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" type="radio" id="customRadioInline7" name="customRadioInline2">
+                                <label for="customRadioInline7">insurance</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input class="custom-control-input" type="radio" id="customRadioInline8" name="customRadioInline2">
+                                <label for="customRadioInline8">packaging</label>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <input class="btn btn--secondary btn--block" type="submit" value="Track &amp; Trace">
+                        </div>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="col-12 col-lg-4"> 
+                    <div class="apply-card widget widget-reservation"><img src="{% static 'frontend/images/1_1.jpg' %}" alt="Background Image">
+                        <div class="widget-content">
+                        <h5>take your carreer to next level</h5>
+                        <p>We pride ourselves on providing the best transport &amp; shipping services available all over the world and there is no one comes close to us. </p><a class="btn btn--white" href=""><i class="icon-arrow-right"></i>apply now!</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <!-- End .contact-body -->
+            </div>
+            <!-- End .contact-card  -->
+            </div>
+        </div>
+        <!-- .col-lg-6-->
+        </div>
+        <!-- End .row-->
+    </div>
+<!-- End .container-->
+</section>
+
+<!--
+============================
+CTA #1 Section end
+============================
+-->
+
+
+
+<!--
+============================
+Features #1 Section
+============================
+-->
+<section class="features bg-gray" id="features-1">
+    <div class="container">
+        <div class="heading heading-4">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+            <p class="heading-subtitle">Safe &amp; Reliable Cargo Solutions! </p>
+            <h2 class="heading-title">Managing Logistics For World's Multinational Companies.</h2>
+            </div>
+            <div class="col-12 col-lg-6">
+            <p class="heading-desc">With our global logistics expertise, advanced supply chain technologies, and tailored logistics solutions, Mundoswift helps you analyze, design, and implement effective end-to-end supply chain strategies.</p>
+            <div class="actions-container"><a class="btn btn-transparent" href="">pricing &amp; plans </a>
+                <div class="employee-info"> 
+                <div class="employee-img"> <img src="{% static 'frontend/images/5.jpg' %}" alt="image"></div>
+                <div class="employee-body"> 
+                    <h6>(+1) 6124574122</h6>
+                    <p>Sales Representative</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- End .col-lg-6-->
+        </div>
+        <!-- End .row-->
+        <div class="row">
+        <div class=" col-sm-6 col-md-6 col-lg-4">
+            <div class="feature-panel bg-white">
+            <div class="feature-icon"><i class="flaticon-035-plane"></i></div>
+            <div class="feature-content"><i class="flaticon-035-plane"></i>
+                <h4>Air Freight<br>Services</h4>
+                <p>We offer comprehensive air freight solutions for urgent, valuable, fragile, or time sensitive cargo, ensuring fast and reliable delivery through trusted global air carriers.</p>
+                <a href="/"><i class="icon-arrow-right"></i> Read more</a>
+
+            </div>
+            </div>
+            <!-- End .feature-panel-->
+        </div>
+        <div class=" col-sm-6 col-md-6 col-lg-4">
+            <div class="feature-panel bg-white">
+            <div class="feature-icon"><i class="flaticon-010-cargo"></i></div>
+            <div class="feature-content"><i class="flaticon-010-cargo"></i>
+                <h4>Ocean Freight<br>Services</h4>
+                <p>We provide reliable international sea transportation in partnership with some of the world's largest ocean carriers, ensuring efficient and secure delivery under optimal conditions.</p>
+                <a href="/"><i class="icon-arrow-right"></i> Read more</a>
+
+            </div>
+            </div>
+            <!-- End .feature-panel-->
+        </div>
+        <div class=" col-sm-6 col-md-6 col-lg-4">
+            <div class="feature-panel bg-white">
+            <div class="feature-icon"><i class="flaticon-004-trailer-1"></i></div>
+            <div class="feature-content"><i class="flaticon-004-trailer-1"></i>
+                <h4>Road Freight<br>Services</h4>
+                <p>We offer a wide range of transportation solutions, including high-quality international road freight services for cargo and goods arriving from ports.</p>
+                <a href="/"><i class="icon-arrow-right"></i> Read more</a>
+
+            </div>
+            </div>
+            <!-- End .feature-panel-->
+        </div>
+        </div>
+        <!-- End .row-->
+        <div class="more-features"> 
+        <p>Logistic &amp; Transport Solutions Saves Your Time. <a href="#">Find your solution </a></p>
+        </div>
+    </div>
+<!-- End .container-->
+</section>
+
+<!--
+============================
+Features #1 Section end
+============================
+-->
+
+
+<!--
+============================
+CTA #3 Section
+============================
+-->
+<section class="cta cta-3 bg-theme" id="cta-3">
+    <div class="container">
+        <div class="row">
+        <div class="col-12 col-lg-5">
+            <div class="heading heading-2 heading-light">
+            <p class="heading-subtitle">Directions, That Matter!</p>
+            <h2 class="heading-title">Digital Freight That Saves Your Time!</h2>
+            </div>
+        </div>
+        <!--End .col-lg-5-->
+        <div class="col-12 col-lg-6 offset-lg-1">
+            <div class="prief-set">
+            <p>We take pride in delivering world class transport and shipping services across the globe. Our experienced team leverages advanced communication, tracking, and processing technologies to ensure seamless operations. Through integrated supply chain solutions, MundoSwift creates sustainable competitive advantages for some of the world's leading companies.</p>
+            <ul class="advantages-list">
+                <li><i class="fas fa-check-circle"></i> Robust Quality Assurance Systems</li>
+                <li><i class="fas fa-check-circle"></i> Precision Handling and Packaging</li>
+                <li><i class="fas fa-check-circle"></i> On Time Delivery Guarantee</li>
+                <li><i class="fas fa-check-circle"></i> Experienced Logistics Specialists</li>
+                <li><i class="fas fa-check-circle"></i> Certified and Trained Personnel</li>
+                <li><i class="fas fa-check-circle"></i> Comprehensive Inspection Protocols</li>
+
+            </ul>
+            </div>
+        </div>
+        <!--End .col-lg-6-->
+        </div>
+        <!-- End .row-->
+        <div class="action-panels"> 
+        <div class="row no-gutters">
+            <div class="col-12 col-lg-6"> 
+            <div class="action-panel"> 
+                <div class="action-panel-img">
+                <div class="bg-section"><img src="{% static 'frontend/images/2_1.jpg' %}" alt="image"></div>
+                </div>
+                <div class="action-panel-content">
+                <div class="panel-icon"><i class="flaticon-015-scale"></i></div>
+                <div class="panel-heading"> 
+                    <h3>Affordable Price, Certified Forwarders</h3>
+                </div><a href="javascript:void(0)"><i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+            </div>
+            <div class="col-12 col-lg-6"> 
+            <div class="action-panel"> 
+                <div class="action-panel-img">
+                <div class="bg-section"><img src="{% static 'frontend/images/3_1.jpg' %}" alt="Image"></div>
+                </div>
+                <div class="action-panel-content inverted">
+                <div class="panel-icon"><i class="flaticon-017-pallet"></i></div>
+                <div class="panel-heading"> 
+                    <h3>Affordable Price, Certified Forwarders</h3>
+                </div><a href="javascript:void(0)"><i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- End .row-->
+    </div>
+<!-- End .container-->
+</section>
+
+<!--
+============================
+CTA #3 Section end
+============================
+-->
+
+
+<!--
+============================
+Cases & Clients #1 Section
+============================
+-->
+<section class="cases-clients bg-parllax" id="cases-clients-1">
+    <div class="cases-standard">
+        <div class="container">
+            <div class="heading text-center">
+                <p class="heading-subtitle">Explore Our Recent Deliveries</p>
+                <h2 class="heading-title">Featured Shipments</h2>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="carousel owl-carousel carousel-navs carousel-dots" data-slide="3" data-slide-rs="1" data-autoplay="true" data-nav="true" data-dots="false" data-space="30" data-loop="true" data-speed="3000">
+
+                        <div class="case-item">
+                            <div class="case-item-warp">
+                                <div class="case-img"><img src="{% static 'frontend/images/1_4.jpg' %}" alt="Express Delivery Project"></div>
+                                <div class="case-content"> 
+                                    <div class="case-title">
+                                        <h4><a href="/">Cross-Country Express Delivery</a></h4>
+                                    </div>
+                                    <div class="case-cat"><a href="/">Express Shipping</a><a href="javascript:void(0)">Time-Sensitive</a></div>
+                                    <div class="case-desc">
+                                        <p>Delivered high-priority shipments across states within strict timelines using our dedicated express freight solutions.</p>
+                                    </div>
+                                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> Explore Case Study</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-item">
+                            <div class="case-item-warp">
+                                <div class="case-img"><img src="{% static 'frontend/images/2_2.jpg' %}" alt="Warehouse Delivery"></div>
+                                <div class="case-content"> 
+                                    <div class="case-title">
+                                        <h4><a href="/">Integrated Warehouse Dispatch</a></h4>
+                                    </div>
+                                    <div class="case-cat"><a href="/">Warehousing</a><a href="javascript:void(0)">Last-Mile Delivery</a></div>
+                                    <div class="case-desc">
+                                        <p>Seamless distribution from our warehouse network to multiple destinations with real-time tracking and optimized routes.</p>
+                                    </div>
+                                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> Explore Case Study</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-item">
+                            <div class="case-item-warp">
+                                <div class="case-img"><img src="{% static 'frontend/images/3_3.jpg' %}" alt="E-commerce Fulfillment"></div>
+                                <div class="case-content"> 
+                                    <div class="case-title">
+                                        <h4><a href="/">E-commerce Fulfillment Rollout</a></h4>
+                                    </div>
+                                    <div class="case-cat"><a href="javascript:void(0)">E-commerce</a><a href="javascript:void(0)">Fulfillment</a></div>
+                                    <div class="case-desc">
+                                        <p>Managed the complete order-to-door delivery process for a fast-growing online retailer, ensuring timely and accurate shipments.</p>
+                                    </div>
+                                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> Explore Case Study</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-item">
+                            <div class="case-item-warp">
+                                <div class="case-img"><img src="{% static 'frontend/images/1_4.jpg' %}" alt="Cold Chain Logistics"></div>
+                                <div class="case-content"> 
+                                    <div class="case-title">
+                                        <h4><a href="/">Cold Chain Delivery Solution</a></h4>
+                                    </div>
+                                    <div class="case-cat"><a href="javascript:void(0)">Temperature-Controlled</a><a href="javascript:void(0)">Special Handling</a></div>
+                                    <div class="case-desc">
+                                        <p>Specialized delivery of perishable goods using our cold chain logistics, maintaining strict temperature control throughout the route.</p>
+                                    </div>
+                                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> Explore Case Study</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-item">
+                            <div class="case-item-warp">
+                                <div class="case-img"><img src="{% static 'frontend/images/2_2.jpg' %}" alt="International Shipping"></div>
+                                <div class="case-content"> 
+                                    <div class="case-title">
+                                        <h4><a href="/">International Freight Coordination</a></h4>
+                                    </div>
+                                    <div class="case-cat"><a href="javascript:void(0)">Global Shipping</a><a href="javascript:void(0)">Customs Clearance</a></div>
+                                    <div class="case-desc">
+                                        <p>Handled international freight with efficient customs clearance, documentation, and cross-border compliance.</p>
+                                    </div>
+                                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> Explore Case Study</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-item">
+                            <div class="case-item-warp">
+                                <div class="case-img"><img src="{% static 'frontend/images/3_3.jpg' %}" alt="Fleet Optimization"></div>
+                                <div class="case-content"> 
+                                    <div class="case-title">
+                                        <h4><a href="/">Fleet Optimization Initiative</a></h4>
+                                    </div>
+                                    <div class="case-cat"><a href="javascript:void(0)">Route Planning</a><a href="javascript:void(0)">Fleet Management</a></div>
+                                    <div class="case-desc">
+                                        <p>Improved delivery efficiency and reduced fuel consumption through smart fleet tracking and dynamic route adjustments.</p>
+                                    </div>
+                                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> Explore Case Study</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End .row-->
+        </div>
+    </div>
+
+    <div class="clients clients-carousel clients-1 pt-0">
+        <div class="container">
+        <div class="row"> 
+            <div class="col-12 col-lg-8 offset-lg-2">
+            <div class="heading heading-5 text-center">
+                <p class="heading-subtitle">Join Our Network</p>
+                <h2 class="heading-title">Our Trusted Partners</h2>
+                <p class="heading-desc">Our experienced team leverages cutting edge communication, tracking, and logistics software backed by decades of industry expertise. Through integrated supply chain solutions, Mundoswift delivers sustainable competitive advantages to some of the world's leading companies.</p>
+
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            <div class="carousel owl-carousel" data-slide="6" data-slide-rs="2" data-autoplay="true" data-nav="false" data-dots="false" data-space="0" data-loop="true" data-speed="3000">
+                <div class="client"><img src="{% static 'frontend/images/1_1.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/2.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/3.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/4.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/5.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/6.png' %}" alt="client"></div>
+            </div>
+            </div>
+        </div>
+        <!-- End .row-->
+        </div>
+        <!-- End .container-->
+    </div>
+</section>
+
+<!--
+============================
+Cases & Clients #1 Section end
+============================
+-->
+
+
+
+<!--
+============================
+Services #3 Section
+============================
+-->
+<section class="testimonial testimonial-3 bg-overlay bg-overlay-theme">
+<div class="bg-section"> <img src="{% static 'frontend/images/1_6.jpg' %}" alt="background-img"></div>
+<div class="container">
+    <div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="heading heading-light heading-6"> 
+        <p class="heading-subtitle">what our clients say!</p>
+        <h2 class="heading-title">
+            Individually Assess <br>Each Plan And Offer <br>Optimal Solutions!</h2>
+        <p class="heading-desc">Serving an impressive list of long-term clients with experience and expertise in multiple industries.</p><a class="btn btn--transparent btn--inverse" href="javascript:void(0)">our services</a>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="carousel owl-carousel carousel-dots" data-slide="1" data-slide-rs="1" data-autoplay="false" data-nav="false" data-dots="true" data-space="40" data-loop="true" data-speed="800">
+        <div class="testimonial-panel">
+            <div class="testimonial-panel-warp">
+            <div class="testimonial-icon"><i class="icon-Quote-Icon"></i></div>
+            <div class="testimonial-body">
+                <div class="testimonial-img"><img src="{% static 'frontend/images/3_2.jpg' %}" alt="Testimonial Author"></div>
+                <div class="testimonial-content">
+                <div class="testimonial-rating"><i class="icon-Star-1"></i><i class="icon-Star-1"></i><i class="icon-Star-1"></i><i class="icon-Star-1"></i><i class="icon-Star-1"></i></div>
+                <p>MundoSwift have been consistent with my cargos, they respond as fast as possible and always ready to help your business.</p>
+                <div class="testimonial-meta">
+                    <h4>John R Peter</h4>
+                    <p>movein</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="testimonial-panel">
+            <div class="testimonial-panel-warp">
+            <div class="testimonial-icon"><i class="icon-Quote-Icon"></i></div>
+            <div class="testimonial-body">
+                <div class="testimonial-img"><img src="{% static 'frontend/images/4_1.jpg' %}" alt="Testimonial Author"></div>
+                <div class="testimonial-content">
+                <div class="testimonial-rating"><i class="icon-Star-1"></i><i class="icon-Star-1"></i><i class="icon-Star-1"></i><i class="icon-Star-1"></i><i class="icon-Star-1"></i></div>
+                <p>Mundoswift Logistics International customer service is some of the best we have ever had with ocean  we like to ship as much as possible with you all.</p>
+                <div class="testimonial-meta">
+                    <h4>James Wane</h4>
+                    <p>James Wane</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="testimonial-panel">
+            <div class="testimonial-panel-warp">
+            <div class="testimonial-icon"><i class="icon-Quote-Icon"></i></div>
+            <div class="testimonial-body">
+                <div class="testimonial-img"><img src="{% static 'frontend/images/3_2.jpg' %}" alt="Testimonial Author"></div>
+                <div class="testimonial-content">
+                <div class="testimonial-rating"><i class="icon-Star-1"></i><i class="icon-Star-1"></i><i class="icon-Star-1"></i><i class="icon-Star-1"></i><i class="icon-Star-1"></i></div>
+                <p>I would Highly recommend mundoswift logistics, my company have been using them for the past 8 years and they always deliver as promised.</p>
+                <div class="testimonial-meta">
+                    <h4>Marko Smith</h4>
+                    <p>Aify Agency</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- End .row-->
+</div>
+<!-- End .container-->
+</section>
+
+
+
+
+<!--
+============================
+Blog #1 Section
+============================
+-->
+<section class="blog blog-grid" id="blog-1">
+    <div class="container">
+        <div class="row"> 
+        <div class="col-12 col-lg-6 offset-lg-3">
+            <div class="heading heading-7 text-center">
+            <p class="heading-subtitle">insight and trends</p>
+            <h2 class="heading-title">recent articles</h2>
+            <p class="heading-desc">Follow our latest news and thoughts which focuses exclusively on  insight, industry trends, top news headlines.</p>
+            </div>
+        </div>
+        </div>
+        <!-- End .row-->
+        <div class="row">
+        <div class=" col-12 col-md-6 col-lg-4">
+            <div class="blog-entry">
+            <div class="entry-img"><a href=""><img src="{% static 'frontend/images/1_5.jpg' %}" alt="Importers achieve cost savings through the First Sale rule!"></a></div>
+            <!-- End .entry-img-->
+            <!-- End .entry-date-->
+            <div class="entry-content">
+                <div class="entry-category"><a href="#">cargo</a><a href="#">insights</a>
+                </div>
+                <div class="entry-title">
+                <h4><a href="/">Importers achieve cost savings through the First Sale rule!</a></h4>
+                </div>
+                <div class="entry-date"><span class="month">jan 20</span><span class="date">2025</span></div>
+                <div class="entry-bio">
+                <p>The trade war currently ensuing between the nations around the globe, fiercely with China, shows no signs of the first set of tariffs levied against solar...</p>
+                </div>
+                <div class="entry-more"> <a href="#">Read more</a></div>
+            </div>
+            </div>
+            <!-- End .entry-content-->
+        </div>
+        <div class=" col-12 col-md-6 col-lg-4">
+            <div class="blog-entry">
+            <div class="entry-img"><a href="#"><img src="{% static 'frontend/images/2_3.jpg' %}" alt="Cargo flow through better supply chain visibility, control."></a></div>
+            <!-- End .entry-img-->
+            <!-- End .entry-date-->
+            <div class="entry-content">
+                <div class="entry-category"><a href="#">warehouse</a><a href="#">construction</a>
+                </div>
+                <div class="entry-title">
+                <h4><a href="#">Cargo flow through better supply chain visibility, control.</a></h4>
+                </div>
+                <div class="entry-date"><span class="month">oct 28</span><span class="date">2024</span></div>
+                <div class="entry-bio">
+                <p>Global provider connected products for consumers, and enterprises worldwide, supply chain control is everything, provide visibility and traceability needed for...</p>
+                </div>
+                <div class="entry-more"> <a href="#">Read more</a></div>
+            </div>
+            </div>
+            <!-- End .entry-content-->
+        </div>
+        <div class=" col-12 col-md-6 col-lg-4">
+            <div class="blog-entry">
+            <div class="entry-img"><a href="#"><img src="{% static 'frontend/images/3_4.jpg' %}" alt="Importance of specialized focus in Projects, Oil &amp; Gas Logistics?"></a></div>
+            <!-- End .entry-img-->
+            <!-- End .entry-date-->
+            <div class="entry-content">
+                <div class="entry-category"><a href="#">logistics</a><a href="#">distrbution</a>
+                </div>
+                <div class="entry-title">
+                <h4><a href="#">Importance of specialized focus in Projects, Oil &amp; Gas Logistics?</a></h4>
+                </div>
+                <div class="entry-date"><span class="month">march 24</span><span class="date">2025</span></div>
+                <div class="entry-bio">
+                <p>Our team provides  skilled &amp; experienced managers who know the intricacies of this vertical and focus on providing  solutions in Oil &amp; Gas sector...</p>
+                </div>
+                <div class="entry-more"> <a href="#">Read more</a></div>
+            </div>
+            </div>
+            <!-- End .entry-content-->
+        </div>
+        </div>
+        <!-- End .row-->
+    </div>
+<!-- End .container-->
+</section>
+
+{% endblock %}

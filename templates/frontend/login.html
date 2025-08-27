@@ -1,0 +1,63 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Start #page-title-->
+<section class="page-title bg-overlay bg-overlay-dark bg-parallax" id="page-title">
+    <div class="bg-section"><img src="{% static 'frontend/images/2.jpg' %}" alt="Background"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+          <div class="title text-lg-left"> 
+            <div class="title-heading">
+              <h1>Login</h1>
+            </div>
+            <div class="clearfix"></div>
+            <ol class="breadcrumb justify-content-lg-start">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Login</li>
+            </ol>
+          </div>
+          <!-- End .title -->
+        </div>
+        <!-- End .col-lg-8 -->
+      </div>
+      <!-- End .row-->
+    </div>
+    <!-- End .container-->
+</section>
+<!-- End #page-title-->
+
+
+<!-- track hero -->
+<div class="container py-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="text-center">
+                        Admin Login
+                    </h5>
+                    {% include '../account/include/alert.html' %}
+                    <hr>
+                    <form action="." method="Post">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" id="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" id="password">
+                        </div>
+                        <button class="btn btn-dark w-100 fw-bold" type="submit" id="button-addon2">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

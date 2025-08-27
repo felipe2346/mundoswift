@@ -1,0 +1,95 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="page-title page-title-3 bg-overlay bg-overlay-dark bg-parallax" id="page-title">
+    <div class="bg-section"><img src="{% static 'frontend/images/service_5.jpg' %}" alt="Background"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 offset-lg-1">
+          <div class="title text-center">
+            <div class="title-heading">
+              <h1>Contact Us </h1>
+            </div>
+            <div class="clearfix"></div>
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="">Contact</a></li>
+              <li class="breadcrumb-item active" aria-current="page">custmer care</li>
+            </ol>
+            {% include '../account/include/alert.html' %}
+          </div>
+          <!-- End .title -->
+        </div>
+        <!-- End .col-lg-8 -->
+      </div>
+      <!-- End .row-->
+    </div>
+    <!-- End .container-->
+</section>
+
+
+
+<!--
+      ============================
+      Contact Information Section
+      ============================
+      -->
+      <section class="contact-info"> 
+        <div class="container"> 
+          <div class="row"> 
+            <div class="col-12 col-lg-4">
+               
+              <div class="row">
+                <div class="col-12 col-sm-6 col-lg-12">
+                  <div class="contact-details"> 
+                    <h6>contact details</h6>
+                    <ul class="list-unstyled info">
+                      <li><span class="fas fa-map-marker-alt"></span><a href="javascript:void(0)">2307 Beverley Rd Brooklyn, New York 11226 United States</a></li>
+                      <li><span class="fas fa-envelope"></span><a href="mailto::Equita@7oroof.com">contact@revellaworldexpress.com</a></li>
+                      <li><span class="fas fa-phone-alt"></span><a href="tel:01061245741">+12153250764</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-12">
+                  <div class="opening-hours"> 
+                    <h6>opening hours</h6>
+                    <ul class="list-unstyled"> 
+                      <li> <span>Monday-friday</span><span>10:00 - 18:00</span></li>
+                      <li> <span>saturday</span><span>10:00 - 14:00</span></li>
+                      <li> <span>sunday</span><span>closed</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-8"> 
+                {% include '../account/include/alert.html' %}
+              <form class="" method="post" action="{% url 'frontend:contact_us' %}">
+                {% csrf_token %}
+                <div class="row"> 
+                  <div class="col-12 col-lg-4">
+                    <input class="form-control" type="text" name="contact-name" placeholder="name" required="">
+                  </div>
+                  <div class="col-12 col-lg-4"> 
+                    <input class="form-control" type="text" name="contact-email" placeholder="email" required="">
+                  </div>
+                  <div class="col-12 col-lg-4"> 
+                    <input class="form-control" type="text" name="contact-subject" placeholder="subject" required="">
+                  </div>
+                  <div class="col-12"> 
+                    <textarea class="form-control" name="contact-message" cols="30" rows="2" placeholder="message" required=""></textarea>
+                  </div>
+                  <div class="col-12">
+                    <input class="btn btn--primary" type="submit" value="Send Message">
+                    <!-- <button type="submit">Send Message</button> -->
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- End .row-->
+        </div>
+        <!-- End .container-->
+      </section>
+{% endblock %}

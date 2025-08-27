@@ -1,0 +1,355 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .bg-section{
+        height: 400px;
+    }
+    .title-heading h1{
+        font-size: 20px;
+    }
+</style>
+
+<!-- Start #page-title-->
+<section class="page-title bg-overlay bg-overlay-dark bg-parallax" id="page-title">
+    <div class="bg-section"><img src="{% static 'frontend/images/track-img.jpg' %}" alt="Background"></div>
+    <div class="container mt-0">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+          <div class="title text-lg-left"> 
+            <!-- <div class="title-heading">
+              <h1>Track Shipment</h1>
+            </div> -->
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <input type="text" name="tracking_code" class="form-control w-100" placeholder="Enter tracking number" style="width: 100%; background-color: #fff;">
+                            <button class="btn btn-danger" type="submit" id="track-button">Track Shipment</button>
+                        </div>
+                        {% include '../account/include/alert.html' %}
+                    </form>
+                </div>
+            </div>
+            <!-- <ol class="breadcrumb justify-content-lg-start">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Blog</li>
+            </ol> -->
+          </div>
+          <!-- End .title -->
+        </div>
+        <!-- End .col-lg-8 -->
+      </div>
+      <!-- End .row-->
+    </div>
+    <!-- End .container-->
+</section>
+<!-- End #page-title-->
+
+{% if shipments %}
+<div class="container py-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-10">
+            <div class="card">
+                {% include './include/tracking_alert.html' %}
+                <hr>
+                {% for shipment in shipments %}
+                <div class="card-body">
+                    <div class="card bg-secondary p-1 border-0"> 
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table_will_space">
+                                    <tbody>
+                                        <tr >
+                                            <td class="bg-secondary border-0 fw-bold">Tracking Code:</td>
+                                            <td class="border-0 bg-light mb-3">{{shipment.tracking_number}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Content:</td>
+                                            <td class="border-0 bg-light col-7">{{shipment.content}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Weight:</td>
+                                            <td class="border-0 bg-light col-7">{{shipment.weight}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Shipping Date:</td>
+                                            <td class="border-0 bg-light col-7">{{shipment.shipping_date}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Estimated Delivery Date:</td>
+                                            <td class="border-0 bg-light col-7">{{shipment.delivery_date}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Shipment Type:</td>
+                                            <td class="border-0 bg-light col-7">{{shipment.shipping_type}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Origin Office:</td>
+                                            <td class="border-0 bg-light col-7">{{shipment.origin_office}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Destination Office:</td>
+                                            <td class="border-0 bg-light col-7">{{shipment.destination_office}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Total Freight:</td>
+                                            <td class="border-0 bg-light col-7">{{shipment.amount_paid}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Booking Mode:</td>
+                                            <td class="border-0 bg-primary text-white col-7">{{shipment.booking_mode}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-secondary border-0 fw-bold col-5">Status:</td>
+                                            <td class="border-0 bg-success text-white col-7">{{latest_update.status}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% else %}
+
+<!--
+============================
+CTA #3 Section
+============================
+-->
+<section class="cta cta-3 bg-theme" id="cta-3">
+    <div class="container">
+        <div class="row">
+        <div class="col-12 col-lg-5">
+            <div class="heading heading-2 heading-light">
+            <p class="heading-subtitle">Directions, That Matter!</p>
+            <h2 class="heading-title">Digital Freight That Saves Your Time!</h2>
+            </div>
+        </div>
+        <!--End .col-lg-5-->
+        <div class="col-12 col-lg-6 offset-lg-1">
+            <div class="prief-set">
+            <p>We pride ourselves on providing the best transport and shipping services available allover the world. Our skilled personnel, utilising communications, tracking and processing software, combined with decades of experience! Through integrated supply chain solutions, Equita drives sustainable competitive advantages to some of Australia's largest companies.</p>
+            <ul class="advantages-list">
+                <li><i class="fas fa-check-circle"></i> Quality Control System</li>
+                <li><i class="fas fa-check-circle"></i> Unrivalled workmanship</li>
+                <li><i class="fas fa-check-circle"></i> 100% Satisfaction Guarantee</li>
+                <li><i class="fas fa-check-circle"></i> Accurate Testing Processes</li>
+                <li><i class="fas fa-check-circle"></i> Highly Professional Staff</li>
+                <li><i class="fas fa-check-circle"></i> Professional and Qualified</li>
+            </ul>
+            </div>
+        </div>
+        <!--End .col-lg-6-->
+        </div>
+        <!-- End .row-->
+        <div class="action-panels"> 
+        <div class="row no-gutters">
+            <div class="col-12 col-lg-6"> 
+            <div class="action-panel"> 
+                <div class="action-panel-img">
+                <div class="bg-section"><img src="{% static 'frontend/images/2_1.jpg' %}" alt="image"></div>
+                </div>
+                <div class="action-panel-content">
+                <div class="panel-icon"><i class="flaticon-015-scale"></i></div>
+                <div class="panel-heading"> 
+                    <h3>Affordable Price, Certified Forwarders</h3>
+                </div><a href="javascript:void(0)"><i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+            </div>
+            <div class="col-12 col-lg-6"> 
+            <div class="action-panel"> 
+                <div class="action-panel-img">
+                <div class="bg-section"><img src="{% static 'frontend/images/3_1.jpg' %}" alt="Image"></div>
+                </div>
+                <div class="action-panel-content inverted">
+                <div class="panel-icon"><i class="flaticon-017-pallet"></i></div>
+                <div class="panel-heading"> 
+                    <h3>Affordable Price, Certified Forwarders</h3>
+                </div><a href="javascript:void(0)"><i class="icon-arrow-right"></i></a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- End .row-->
+    </div>
+<!-- End .container-->
+</section>
+
+<!--
+============================
+CTA #3 Section end
+============================
+-->
+
+<!--
+============================
+Cases & Clients #1 Section
+============================
+-->
+<section class="cases-clients bg-parllax" id="cases-clients-1">
+    <div class="cases-standard">
+        <div class="container">
+        <div class="heading text-center">
+            <p class="heading-subtitle">Explore Recent Works</p>
+            <h2 class="heading-title">featured projects</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            <div class="carousel owl-carousel carousel-navs carousel-dots" data-slide="3" data-slide-rs="1" data-autoplay="true" data-nav="true" data-dots="false" data-space="30" data-loop="true" data-speed="3000">
+                <div class="case-item">
+                <div class="case-item-warp">
+                    <div class="case-img"><img src="{% static 'frontend/images/1_4.jpg' %}" alt="work Item Image"></div>
+                    <!-- End .work-img-->
+                    <div class="case-content"> 
+                    <div class="case-title">
+                        <h4><a href="case-study-single.html">floride chemical factory</a></h4>
+                    </div>
+                    <div class="case-cat"><a href="/">analytics</a><a href="javascript:void(0)">optimization</a></div>
+                    <div class="case-desc">
+                        <p>We understand that data is the greatest asset when it comes to analyzing and optimizing your supply chain performance.</p>
+                    </div>
+                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> explore case study</a></div>
+                    </div>
+                    <!-- End .work-content-->
+                </div>
+                </div>
+                <div class="case-item">
+                <div class="case-item-warp">
+                    <div class="case-img"><img src="{% static 'frontend/images/2_2.jpg' %}" alt="work Item Image"></div>
+                    <!-- End .work-img-->
+                    <div class="case-content"> 
+                    <div class="case-title">
+                        <h4><a href="/">warehouse inventory</a></h4>
+                    </div>
+                    <div class="case-cat"><a href="/">warehousing</a><a href="javascript:void(0)">distrbution</a></div>
+                    <div class="case-desc">
+                        <p>Cost savings is crucial, innovative technology minimizes your overall spend by utilizing an schedule.</p>
+                    </div>
+                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> explore case study</a></div>
+                    </div>
+                    <!-- End .work-content-->
+                </div>
+                </div>
+                <div class="case-item">
+                <div class="case-item-warp">
+                    <div class="case-img"><img src="{% static 'frontend/images/3_3.jpg' %}" alt="work Item Image"></div>
+                    <!-- End .work-img-->
+                    <div class="case-content"> 
+                    <div class="case-title">
+                        <h4><a href="/">Minimize Manufacturing</a></h4>
+                    </div>
+                    <div class="case-cat"><a href="javascript:void(0)">logistics</a><a href="javascript:void(0)">analytics</a></div>
+                    <div class="case-desc">
+                        <p>Our Group has been building relationships and projects that last. Serving an impressive list of long-term.</p>
+                    </div>
+                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> explore case study</a></div>
+                    </div>
+                    <!-- End .work-content-->
+                </div>
+                </div>
+                <div class="case-item">
+                <div class="case-item-warp">
+                    <div class="case-img"><img src="{% static 'frontend/images/1_4.jpg' %}" alt="work Item Image"></div>
+                    <!-- End .work-img-->
+                    <div class="case-content"> 
+                    <div class="case-title">
+                        <h4><a href="/">floride chemical factory</a></h4>
+                    </div>
+                    <div class="case-cat"><a href="javascript:void(0)">analytics</a><a href="javascript:void(0)">optimization</a></div>
+                    <div class="case-desc">
+                        <p>We understand that data is the greatest asset when it comes to analyzing and optimizing your supply chain performance.</p>
+                    </div>
+                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> explore case study</a></div>
+                    </div>
+                    <!-- End .work-content-->
+                </div>
+                </div>
+                <div class="case-item">
+                <div class="case-item-warp">
+                    <div class="case-img"><img src="{% static 'frontend/images/2_2.jpg' %}" alt="work Item Image"></div>
+                    <!-- End .work-img-->
+                    <div class="case-content"> 
+                    <div class="case-title">
+                        <h4><a href="/">warehouse inventory</a></h4>
+                    </div>
+                    <div class="case-cat"><a href="javascript:void(0)">warehousing</a><a href="javascript:void(0)">distrbution</a></div>
+                    <div class="case-desc">
+                        <p>Cost savings is crucial, innovative technology minimizes your overall spend by utilizing an schedule.</p>
+                    </div>
+                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> explore case study</a></div>
+                    </div>
+                    <!-- End .work-content-->
+                </div>
+                </div>
+                <div class="case-item">
+                <div class="case-item-warp">
+                    <div class="case-img"><img src="{% static 'frontend/images/3_3.jpg' %}" alt="work Item Image"></div>
+                    <!-- End .work-img-->
+                    <div class="case-content"> 
+                    <div class="case-title">
+                        <h4><a href="/">Minimize Manufacturing</a></h4>
+                    </div>
+                    <div class="case-cat"><a href="javascript:void(0)">logistics</a><a href="javascript:void(0)">analytics</a></div>
+                    <div class="case-desc">
+                        <p>Our Group has been building relationships and projects that last. Serving an impressive list of long-term.</p>
+                    </div>
+                    <div class="case-more"><a href="/"><i class="icon-arrow-right"></i> explore case study</a></div>
+                    </div>
+                    <!-- End .work-content-->
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- End .row-->
+        </div>
+    </div>
+    <div class="clients clients-carousel clients-1 pt-0">
+        <div class="container">
+        <div class="row"> 
+            <div class="col-12 col-lg-8 offset-lg-2">
+            <div class="heading heading-5 text-center">
+                <p class="heading-subtitle">join us today</p>
+                <h2 class="heading-title">our partners</h2>
+                <p class="heading-desc">Our skilled personnel, utilising the latest communications, tracking and processing software, combined with decades of experience! Through integrated supply chain solutions, Revella World drives sustainable competitive advantages to some of the world's largest companies.</p>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            <div class="carousel owl-carousel" data-slide="6" data-slide-rs="2" data-autoplay="true" data-nav="false" data-dots="false" data-space="0" data-loop="true" data-speed="3000">
+                <div class="client"><img src="{% static 'frontend/images/1_1.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/2.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/3.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/4.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/5.png' %}" alt="client"></div>
+                <div class="client"><img src="{% static 'frontend/images/6.png' %}" alt="client"></div>
+            </div>
+            </div>
+        </div>
+        <!-- End .row-->
+        </div>
+        <!-- End .container-->
+    </div>
+</section>
+
+<!--
+============================
+Cases & Clients #1 Section end
+============================
+-->
+{% endif %}
+{% endblock %}
