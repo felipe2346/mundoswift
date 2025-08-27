@@ -20,8 +20,8 @@ class Shipment(models.Model):
     destination_office = models.CharField(max_length=100)
     shipping_date = models.DateField()
     delivery_date = models.DateField()
-    booking_mode = models.CharField(max_length=100)
-    amount_paid = models.CharField(max_length=100)
+    # booking_mode = models.CharField(max_length=100)
+    # amount_paid = models.CharField(max_length=100)
     date_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -33,12 +33,15 @@ class Shipment(models.Model):
 
 class LiveUpdate(models.Model):
     shipment = models.ForeignKey(Shipment, related_name='live_update', on_delete=models.CASCADE)
-    current_location = models.CharField(max_length=150)
+    country = models.CharField(max_length=150)
     status = models.CharField(max_length=150)
     remark = models.CharField(max_length=500, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     stages_status = models.CharField(max_length=50, choices=constants.STATES_LIVE_CHOICES)
     stages_label = models.CharField(max_length=50, choices=constants.STATES_LABEL_CHOICES)
+
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return self.status
