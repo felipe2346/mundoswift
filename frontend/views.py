@@ -103,7 +103,7 @@ def contact_us(request):
             emailsend.email_send(
                 'Email From '+name,
                 final_message,
-                'contact@revellaworldexpress.com',
+                'deliveries@mundoswift.com',
             )
             messages.success(request, 'Email sent successfully, we will get back to you as soon as possible')
         except:
