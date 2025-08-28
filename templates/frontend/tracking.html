@@ -369,7 +369,9 @@ Cases & Clients #1 Section end
 {% endif %}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 {{ live_updates_json|default:"[]"|json_script:"live_updates" }}
+
 <script>
     const updates = JSON.parse(document.getElementById('live_updates').textContent);
 
@@ -381,56 +383,95 @@ Cases & Clients #1 Section end
 
     const latlngs = [];
 
+    // Define custom icons
+    const airplaneIcon = L.icon({
+        iconUrl: 'https://img.icons8.com/emoji/48/airplane-emoji.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+    });
+
+    const truckIcon = L.icon({
+        iconUrl: 'https://img.icons8.com/emoji/48/delivery-truck.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+    });
+
     updates.forEach((update, index) => {
         const latlng = [update.latitude, update.longitude];
         latlngs.push(latlng);
 
-        let markerOptions = {};
+        let marker;
         let popupContent = `<b>${update.status}</b><br>${update.remark || ''}<br>${new Date(update.created_on).toLocaleDateString()}`;
 
         if (index === 0) {
-            // Start marker (green)
-            markerOptions = {
-            color: 'green',
-            radius: 10,
-            fillOpacity: 0.8
-            };
+            // Origin - airplane icon
+            marker = L.marker(latlng, { icon: airplaneIcon }).addTo(map);
             popupContent = `<b>Origin:</b> ${popupContent}`;
         } else if (index === updates.length - 1) {
-            // End marker (red)
-            markerOptions = {
-            color: 'red',
-            radius: 10,
-            fillOpacity: 0.8
-            };
-            popupContent = `<b>Latest Update:</b> ${popupContent}`;
-        }
-
-        // Create marker — circleMarker for start/end, regular marker for others
-        let marker;
-        if (index === 0 || index === updates.length - 1) {
-            marker = L.circleMarker(latlng, markerOptions).addTo(map);
+            // Latest/current location - truck icon
+            marker = L.marker(latlng, { icon: truckIcon }).addTo(map);
+            popupContent = `<b>Current Location:</b> ${popupContent}`;
         } else {
-            marker = L.marker(latlng).addTo(map);
+            // Other points - blue circle markers
+            marker = L.circleMarker(latlng, {
+                color: 'blue',
+                radius: 6,
+                fillOpacity: 0.7
+            }).addTo(map);
         }
 
-        // Bind popup
         marker.bindPopup(popupContent);
 
-        // Bind tooltip with country name — shows on hover
         marker.bindTooltip(update.country, {
-            permanent: false,    // tooltip shows only on hover
+            permanent: false,
             direction: 'top',
-            offset: [0, -10],    // lift tooltip slightly above marker
+            offset: [0, -10],
         });
     });
 
-    // Draw polyline for route
-    const polyline = L.polyline(latlngs, {color: 'blue'}).addTo(map);
+    // Draw polyline for the route
+    const polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
 
     // Zoom map to fit all points with padding
     const bounds = L.latLngBounds(latlngs);
-    map.fitBounds(bounds, {padding: [50, 50]});
+    map.fitBounds(bounds, { padding: [50, 50] });
+
+    // Add legend to map
+    const legend = L.control({ position: 'bottomright' });
+
+    legend.onAdd = function (map) {
+        const div = L.DomUtil.create('div', 'info legend');
+        div.style.background = 'white';
+        div.style.padding = '6px';
+        div.style.borderRadius = '5px';
+        div.style.boxShadow = '0 0 10px rgba(0,0,0,0.3)';
+        div.style.fontSize = '14px';
+        div.style.lineHeight = '24px';
+
+        div.innerHTML = `
+            <div><img src="https://img.icons8.com/emoji/24/airplane-emoji.png" style="vertical-align: middle;"/> Origin (Airplane)</div>
+            <div><span style="display: inline-block; width: 12px; height: 12px; background: blue; border-radius: 50%; margin-right: 6px;"></span> In Transit</div>
+            <div><img src="https://img.icons8.com/emoji/24/delivery-truck.png" style="vertical-align: middle;"/> Current Location (Truck)</div>
+        `;
+        return div;
+    };
+
+    legend.addTo(map);
 </script>
+
+<!-- Legend Styling -->
+<style>
+    .leaflet-control .legend {
+        background: white;
+        padding: 10px;
+        font-size: 13px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        line-height: 22px;
+        border-radius: 5px;
+    }
+</style>
+
 
 {% endblock %}
