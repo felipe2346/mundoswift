@@ -14,6 +14,16 @@
         width: 100%;
         margin-top: 20px;
     }
+    .sender-info p{
+        margin: 0;
+        padding: 0;
+        font-size: 14px !important;
+        color: #202020 !important;
+    }
+
+    .sender-info .card{
+        background-color: rgba(218, 194, 159, 0.795);
+    }
 </style>
 
 <!-- Start #page-title-->
@@ -73,6 +83,43 @@
                 <div class="card-body">
                     <div class="card bg-secondary p-1 border-0"> 
                         <div class="card-body">
+                            <!-- sender info -->
+                             <div class="row sender-info">
+                                <div class="col-md-5 mb-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <p><strong>Sender Name: </strong>{{shipment.sender_name}}</p>
+                                            <p><strong>Location: </strong>{{shipment.sender_address}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-2">
+
+                                </div> -->
+                                <div class="col-md-7">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p><strong>Receiver Name: </strong>{{shipment.receiver_name}}</p>
+                                                    {% if shipment.receiver_address %}
+                                                        <p><strong>Address: </strong>{{shipment.receiver_address}} </p>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col-md-6">
+                                                    {% if shipment.receiver_email %}
+                                                        <p><strong>Email: </strong>{{shipment.receiver_email}} </p>
+                                                    {% endif %}
+                                                    {% if shipment.receiver_phone %}
+                                                        <p><strong>Phone: </strong>{{shipment.receiver_phone}} </p>
+                                                    {% endif %}
+                                                </div>
+                                            </div>        
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
                             <div class="table-responsive">
                                 <table class="table table_will_space">
                                     <tbody>

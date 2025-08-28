@@ -4,14 +4,14 @@ from geopy.geocoders import Nominatim
 
 class Shipment(models.Model):
     sender_name = models.CharField(max_length=150)
-    sender_email = models.EmailField()
-    sender_phone = models.CharField(max_length=20)
-    sender_address = models.CharField(max_length=200)
+    sender_email = models.EmailField(null=True, blank=True)
+    sender_phone = models.CharField(max_length=20, null=True, blank=True)
+    sender_address = models.CharField(max_length=200, null=True, blank=True)
 
     receiver_name = models.CharField(max_length=150)
-    receiver_email = models.EmailField()
-    receiver_phone = models.CharField(max_length=20)
-    receiver_address = models.CharField(max_length=200)
+    receiver_email = models.EmailField(null=True, blank=True)
+    receiver_phone = models.CharField(max_length=20, null=True, blank=True)
+    receiver_address = models.CharField(max_length=200, null=True, blank=True)
 
     tracking_number = models.CharField(max_length=100, unique=True)
     weight = models.CharField(max_length=50)
