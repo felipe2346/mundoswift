@@ -32,8 +32,8 @@ class LiveUpdateCreateForm(forms.ModelForm):
     class Meta:
         model = LiveUpdate
         fields = '__all__'
-        exclude = ['created_on', 'shipment']
-        # exclude = ['created_on', 'shipment', 'latitude','longitude']
+        # exclude = ['created_on', 'shipment']
+        exclude = ['created_on', 'shipment', 'latitude','longitude']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
