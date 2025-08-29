@@ -1,3 +1,5 @@
+import string
+import random
 from django.db import models
 from . import constants
 from geopy.geocoders import Nominatim
@@ -13,14 +15,14 @@ class Shipment(models.Model):
     receiver_phone = models.CharField(max_length=20, null=True, blank=True)
     receiver_address = models.CharField(max_length=200, null=True, blank=True)
 
-    tracking_number = models.CharField(max_length=100, unique=True)
+    tracking_number = models.CharField(max_length=100, unique=True, blank=True)
     weight = models.CharField(max_length=50)
     content = models.CharField(max_length=400)
     shipping_type = models.CharField(max_length=100)
     origin_office = models.CharField(max_length=100)
     destination_office = models.CharField(max_length=100)
-    shipping_date = models.DateField()
-    delivery_date = models.DateField()
+    # shipping_date = models.DateField()
+    # delivery_date = models.DateField()
     # booking_mode = models.CharField(max_length=100)
     # amount_paid = models.CharField(max_length=100)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -30,6 +32,18 @@ class Shipment(models.Model):
 
     def __str__(self):
         return self.sender_name
+
+    def save(self, *args, **kwargs):
+        if not self.tracking_number:
+            self.tracking_number = self.generate_unique_tracking_number()
+        super().save(*args, **kwargs)
+
+    def generate_unique_tracking_number(self, length=12):
+        characters = string.ascii_uppercase + string.digits
+        while True:
+            tracking_number = ''.join(random.choices(characters, k=length))
+            if not Shipment.objects.filter(tracking_number=tracking_number).exists():
+                return tracking_number
 
 
 class LiveUpdate(models.Model):
