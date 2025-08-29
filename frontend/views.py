@@ -39,7 +39,7 @@ def tracking(request):
                         'status': update.status,
                         'remark': update.remark,
                         'created_on': update.created_on.isoformat(),
-                        'country': update.country,
+                        'country': update.country.country_name if update.country else None,
                     })
 
             live_update_count = live_update_qs.count()
