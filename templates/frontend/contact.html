@@ -2,30 +2,48 @@
 {% load static %}
 
 {% block content %}
+<style>
+/* Optional subtle highlight animation */
+.error-highlight {
+  animation: highlightFade 2s ease;
+}
+
+@keyframes highlightFade {
+  0%   { background-color: #ffebee; }
+  100% { background-color: transparent; }
+}
+
+/* Optional left border for clarity */
+.has-error {
+  border-left: 3px solid #e74c3c;
+  padding-left: 8px;
+}
+</style>
+
 <section class="page-title page-title-3 bg-overlay bg-overlay-dark bg-parallax" id="page-title">
-    <div class="bg-section"><img src="{% static 'frontend/images/service_5.jpg' %}" alt="Background"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-10 offset-lg-1">
-          <div class="title text-center">
-            <div class="title-heading">
-              <h1>Contact Us </h1>
-            </div>
-            <div class="clearfix"></div>
-            <ol class="breadcrumb justify-content-center">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item"><a href="">Contact</a></li>
-              <li class="breadcrumb-item active" aria-current="page">custmer care</li>
-            </ol>
-            {% include '../account/include/alert.html' %}
+  <div class="bg-section"><img src="{% static 'frontend/images/service_5.jpg' %}" alt="Background"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="title text-center">
+          <div class="title-heading">
+            <h1>Contact Us </h1>
           </div>
-          <!-- End .title -->
+          <div class="clearfix"></div>
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="">Contact</a></li>
+            <li class="breadcrumb-item active" aria-current="page">custmer care</li>
+          </ol>
+          {% include '../account/include/alert.html' %}
         </div>
-        <!-- End .col-lg-8 -->
+        <!-- End .title -->
       </div>
-      <!-- End .row-->
+      <!-- End .col-lg-8 -->
     </div>
-    <!-- End .container-->
+    <!-- End .row-->
+  </div>
+  <!-- End .container-->
 </section>
 
 
@@ -35,61 +53,139 @@
       Contact Information Section
       ============================
       -->
-      <section class="contact-info"> 
-        <div class="container"> 
-          <div class="row"> 
-            <div class="col-12 col-lg-4">
-               
-              <div class="row">
-                <div class="col-12 col-sm-6 col-lg-12">
-                  <div class="contact-details"> 
-                    <h6>contact details</h6>
-                    <ul class="list-unstyled info">
-                      <li><span class="fas fa-map-marker-alt"></span><a href="javascript:void(0)">2307 Beverley Rd Brooklyn, New York 11226 United States</a></li>
-                      <li><span class="fas fa-envelope"></span><a href="mailto::Equita@7oroof.com">deliveries@mundoswift.com</a></li>
-                      <!-- <li><span class="fas fa-phone-alt"></span><a href="tel:01061245741">+12153250764</a></li> -->
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-12">
-                  <div class="opening-hours"> 
-                    <h6>opening hours</h6>
-                    <ul class="list-unstyled"> 
-                      <li> <span>Monday-friday</span><span>10:00 - 18:00</span></li>
-                      <li> <span>saturday</span><span>10:00 - 14:00</span></li>
-                      <li> <span>sunday</span><span>closed</span></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-lg-8"> 
-                {% include '../account/include/alert.html' %}
-              <form class="" method="post" action="{% url 'frontend:contact_us' %}">
-                {% csrf_token %}
-                <div class="row"> 
-                  <div class="col-12 col-lg-4">
-                    <input class="form-control" type="text" name="contact-name" placeholder="name" required="">
-                  </div>
-                  <div class="col-12 col-lg-4"> 
-                    <input class="form-control" type="text" name="contact-email" placeholder="email" required="">
-                  </div>
-                  <div class="col-12 col-lg-4"> 
-                    <input class="form-control" type="text" name="contact-subject" placeholder="subject" required="">
-                  </div>
-                  <div class="col-12"> 
-                    <textarea class="form-control" name="contact-message" cols="30" rows="2" placeholder="message" required=""></textarea>
-                  </div>
-                  <div class="col-12">
-                    <input class="btn btn--primary" type="submit" value="Send Message">
-                    <!-- <button type="submit">Send Message</button> -->
-                  </div>
-                </div>
-              </form>
+<section class="contact-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-4">
+
+        <div class="row">
+          <div class="col-12 col-sm-6 col-lg-12">
+            <div class="contact-details">
+              <h6>contact details</h6>
+              <ul class="list-unstyled info">
+                <li><span class="fas fa-map-marker-alt"></span><a href="javascript:void(0)">2307 Beverley Rd Brooklyn,
+                    New York 11226 United States</a></li>
+                <li><span class="fas fa-envelope"></span><a
+                    href="mailto::Equita@7oroof.com">deliveries@mundoswift.com</a></li>
+                <!-- <li><span class="fas fa-phone-alt"></span><a href="tel:01061245741">+12153250764</a></li> -->
+              </ul>
             </div>
           </div>
-          <!-- End .row-->
+          <div class="col-12 col-sm-6 col-lg-12">
+            <div class="opening-hours">
+              <h6>opening hours</h6>
+              <ul class="list-unstyled">
+                <li> <span>Monday-friday</span><span>10:00 - 18:00</span></li>
+                <li> <span>saturday</span><span>10:00 - 14:00</span></li>
+                <li> <span>sunday</span><span>closed</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <!-- End .container-->
-      </section>
+      </div>
+      <div class="col-12 col-lg-8">
+        {% include '../account/include/alert.html' %}
+        <form method="post" action="{% url 'frontend:contact_us' %}">
+          {% csrf_token %}
+          <div class="row">
+            <!-- Non-field errors -->
+            {% if form.non_field_errors %}
+            <div class="col-12 mb-3 text-danger small nonfield-errors">
+              {% for error in form.non_field_errors %}
+              {{ error }}
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="col-12 col-lg-4 {% if form.name.errors %}has-error{% endif %}">
+              {{ form.name }}
+              {% if form.name.errors %}
+              <div class="text-danger small">
+                {% for error in form.name.errors %}
+                {{ error }}
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+            <div class="col-12 col-lg-4 {% if form.email.errors %}has-error{% endif %}">
+              {{ form.email }}
+              {% if form.email.errors %}
+              <div class="text-danger small">
+                {% for error in form.email.errors %}
+                {{ error }}
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+            <div class="col-12 col-lg-4 {% if form.subject.errors %}has-error{% endif %}">
+              {{ form.subject }}
+              {% if form.subject.errors %}
+              <div class="text-danger small">
+                {% for error in form.subject.errors %}
+                {{ error }}
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+            <div class="col-12 {% if form.message.errors %}has-error{% endif %}">
+              {{ form.message }}
+              {% if form.message.errors %}
+              <div class="text-danger small">
+                {% for error in form.message.errors %}
+                {{ error }}
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+            <div class="col-12 mb-4 {% if form.captcha.errors %}has-error{% endif %}">
+              {{ form.captcha }}
+              {% if form.captcha.errors %}
+              <div class="text-danger small">
+                {% for error in form.captcha.errors %}
+                {{ error }}
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+            <div class="col-12">
+              <input class="btn btn--primary" type="submit" value="Send Message">
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End .row-->
+  </div>
+  <!-- End .container-->
+</section>
+
+<!-- Scroll to first error -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Find first field-level error
+  const fieldError = document.querySelector('.has-error');
+
+  // Find non-field (global) error block
+  const nonFieldError = document.querySelector('.nonfield-errors, .errorlist.nonfield, .form-errors');
+
+  // Decide what to scroll to
+  const target = fieldError || nonFieldError;
+
+  if (target) {
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Focus first input if it’s a field error
+      const input = target.querySelector('input, select, textarea');
+      if (input) input.focus();
+
+      // Optional: highlight animation
+      target.classList.add('error-highlight');
+      setTimeout(() => target.classList.remove('error-highlight'), 2000);
+    }, 200);
+  }
+});
+</script>
+
 {% endblock %}

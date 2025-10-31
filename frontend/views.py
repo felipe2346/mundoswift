@@ -7,6 +7,7 @@ from django.template.loader import render_to_string
 
 from account.models import Shipment, LiveUpdate
 from . import emailsend
+from .forms import ContactForm
 
 def home(request):
     return render(request, 'frontend/index.html')
@@ -85,30 +86,30 @@ def logoutUser(request):
 def contact_us(request):
 
     if request.method == 'POST':
-        print('button clicked')
-        name = request.POST.get('contact-name')
-        email = request.POST.get('contact-email')
-        subject = request.POST.get('contact-subject')
-        message = request.POST.get('contact-message')
+        form = ContactForm(request.POST)
 
-        final_message = render_to_string('frontend/emails/customer_care_email.html', 
-        {
-            'name': name,
-            'email': email,
-            'message': message,
-            'subject': subject
-        })
+        if form.is_valid():
+            cd = form.cleaned_data
+            final_message = render_to_string('frontend/emails/customer_care_email.html', 
+            {
+                'name': cd['name'],
+                'email': cd['email'],
+                'message': cd['message'],
+                'subject': cd['subject']
+            })
 
-        try:
-            emailsend.email_send(
-                'Email From '+name,
-                final_message,
-                'deliveries@mundoswift.com',
-            )
-            messages.success(request, 'Email sent successfully, we will get back to you as soon as possible')
-        except:
-            messages.error(request, 'There was an error while trying to send your email, please try again')
+            try:
+                emailsend.email_send(
+                    f"New Contact: {cd['subject']}",
+                    final_message,
+                    'deliveries@mundoswift.com',
+                )
+                messages.success(request, 'Email sent successfully, we will get back to you as soon as possible')
+            except:
+                messages.error(request, 'There was an error while trying to send your message, please try again')
 
-        finally:
-            return redirect('frontend:contact_us')
-    return render(request, 'frontend/contact.html')
+            finally:
+                return redirect('frontend:contact_us')
+    else:
+        form = ContactForm()
+    return render(request, 'frontend/contact.html', {"form":form})

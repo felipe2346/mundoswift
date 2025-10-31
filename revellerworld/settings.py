@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'captcha',
+    
     'frontend',
     'account',
 ]
@@ -133,3 +135,9 @@ EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'MundoSwift <deliveries@mundoswift.com>'
+
+CAPTCHA_IMAGE_SIZE = (200, 60)
+CAPTCHA_FONT_SIZE = 36
+CAPTCHA_LENGTH = 6
+CAPTCHA_TIMEOUT = 5  # minutes
+
